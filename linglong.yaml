@@ -1,0 +1,28 @@
+package:
+  id: libdvdread
+  name: libdvdread
+  version: 6.0.0
+  kind: lib
+  description: |
+    libdvdread.
+
+base:
+  id: org.deepin.base
+  version: 20.5.0
+
+source:
+  kind: git
+  url: https://github.com/deepin-community/libdvdread.git
+  version: master
+  commit: 1ebb6b0fbc7ef38e25fee7927a44f18a0ee40388
+
+  patch:
+  - 0001-libdvdcss.patch
+  - 0002-descriptor.patch
+variables:
+  extra_args: |
+    --enable-static \
+    --disable-silent-rules
+
+build:
+  kind: autotools
